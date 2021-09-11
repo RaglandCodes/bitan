@@ -1,0 +1,45 @@
+{% extends "website/base_generic.html" %} {% block body %}
+<h1>Sign in to Bitan</h1>
+
+{% load static %} {% csrf_token %}
+<!-- <div
+  id="g_id_onload"
+  data-client_id="982908682372-8rq3ihmad5f7si0v0k0uepi81dfsraun.apps.googleusercontent.com"
+  data-auto_prompt="false"
+  data-callback="handleCredentialResponse"
+></div>
+<div
+  class="g_id_signin"
+  data-type="standard"
+  data-size="large"
+  data-theme="outline"
+  data-text="sign_in_with"
+  data-shape="rectangular"
+  data-logo_alignment="left"
+></div>
+
+<script src="https://accounts.google.com/gsi/client" async defer></script> -->
+<script
+  type="module"
+  src="{% static 'website/scripts/lib/jsCookie.js' %}"
+></script>
+<script type="module">
+  console.log(`${document.cookie} <== document.cookie`);
+  console.log(`${Cookies.get('csrftoken')} <== Cookies.get('csrftoken')`);
+
+  const csrftoken = Cookies.get('csrftoken');
+
+  // fetch('/auth/signin/', {
+  //   method: 'POST',
+  //   headers: {
+  //     'X-CSRFToken': csrftoken,
+  //   },
+  //   mode: 'same-origin',
+  // });
+  // function handleCredentialResponse(response) {
+  //   console.dir(response);
+  //   console.log('^response^');
+  // }
+</script>
+
+{% endblock %}
